@@ -1,22 +1,11 @@
-var num1Element = document.getElementById('num1');
-var num2Element = document.getElementById('num2');
-var buttonElement = document.querySelector('button');
-function add(num1, num2) {
-    return num1 + num2;
-}
-function printResult(resultObj) {
-    console.log(resultObj.val);
-}
-;
-if (buttonElement) {
-    buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addEventListener('click', function () {
-        var num1 = num1Element.value;
-        var num2 = num2Element.value;
-        var result = add(+num1, +num2);
-        var stringResult = add(num1, num2);
-        console.log(result);
-        console.log(stringResult);
-        printResult({ val: result, timestamp: new Date });
-    });
-}
-;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var todos_1 = require("./routes/todos");
+var body_parser_1 = require("body-parser");
+var app = (0, express_1.default)();
+app.use(body_parser_1.default.json());
+app.use(todos_1.default);
+app.listen(1234, function () {
+    console.log('Running');
+});
